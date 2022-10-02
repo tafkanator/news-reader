@@ -9,7 +9,7 @@ module.exports = {
 		},
 	},
 	settings: {
-		'import/internal-regex': '^@/',
+		'import/internal-regex': '^src/',
 		react: {
 			version: 'detect',
 		},
