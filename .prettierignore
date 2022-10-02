@@ -1,0 +1,6 @@
+package.json
+.vscode
+**/*.generated.ts
+public
+dist
+node_modules
