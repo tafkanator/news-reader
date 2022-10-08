@@ -1,0 +1,41 @@
+.wrap {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+	align-items: start;
+	justify-items: center;
+
+	/*  4 column layout in in larger screen */
+	@media (--desktop-up) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.card {
+	width: 100%;
+
+	/* make first card span 2 columns */
+	&:nth-child(1) {
+		grid-column: span 2;
+	}
+
+	/* make second card span 2 columns in larger screen */
+	&:nth-child(2) {
+		@media (--desktop-up) {
+			grid-column: span 2;
+		}
+	}
+}
+
+/* font sizes for first two cards */
+
+.card:nth-child(1) .cardTitle {
+	font-weight: 700;
+	font-size: 1.125rem;
+}
+
+.card:nth-child(2) .cardTitle {
+	@media (--desktop-up) {
+		font-weight: 700;
+	}
+}

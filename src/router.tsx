@@ -8,7 +8,7 @@ export enum Path {
 export const routes: Route[] = [
 	{
 		path: Path.INDEX,
-		element: () => import('src/routes/NewsListRoute').then((m) => <m.NewsListRoute />),
+		element: () => import('src/routes/news-list/NewsListRoute').then((m) => <m.NewsListRoute />),
 	},
 	{
 		path: Path.NEWS_DETAIL,

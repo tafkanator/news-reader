@@ -1,0 +1,8 @@
+.wrap {
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.isLoaded {
+	opacity: 1;
+}
