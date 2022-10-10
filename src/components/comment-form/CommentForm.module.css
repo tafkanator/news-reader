@@ -1,0 +1,10 @@
+.wrap {
+	display: grid;
+	grid-auto-rows: min-content;
+	gap: 0.5rem;
+	font-size: var(--font-size-small);
+}
+
+.btn {
+	margin: 0.5rem 0 0 auto;
+}

@@ -1,0 +1,25 @@
+.wrap {
+	display: grid;
+	grid-template:
+		'email date'
+		'content content' 1fr / 1fr auto;
+	gap: 0.5rem;
+	padding: 1rem;
+	background-color: var(--color-bg);
+	border-radius: var(--radius-small);
+	font-size: var(--font-size-small);
+}
+
+.email {
+	grid-area: email;
+}
+
+.date {
+	grid-area: date;
+	color: var(--color-text-alt);
+}
+
+.content {
+	grid-area: content;
+	font-weight: 300;
+}

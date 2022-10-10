@@ -12,7 +12,7 @@ export const routes: Route[] = [
 	},
 	{
 		path: Path.NEWS_DETAIL,
-		element: () => import('src/routes/NewsDetailRoute').then((m) => <m.NewsDetailRoute />),
+		element: () => import('src/routes/news-detail/NewsDetailRoute').then((m) => <m.NewsDetailRoute />),
 	},
 	{
 		path: '*',

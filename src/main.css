@@ -1,16 +1,39 @@
 @custom-media --desktop-up (min-width: 56rem);
 
 :root {
-	--color-bg: #fff;
-	--color-text: #000;
-	--color-link-hover: #aa00c4;
+	/* colors */
+	--color-bg: rgb(255 255 255);
+	--color-bg-secondary: rgb(247 247 247);
+
+	--color-text: rgb(9, 16, 29);
+	--color-text-alt: rgb(102, 102, 102);
+	--color-link-hover: rgb(170 0 170);
+
+	--color-input-border: rgb(204, 204, 204);
+	--color-input-outline: var(--color-link-hover);
+	--color-input-bg: rgb(255, 255, 255);
+
+	--color-btn-primary: rgb(44, 46, 50);
+	--color-btn-primary-focus: var(--color-link-hover);
+
+	/* font sizes */
+	--font-size-tiny: 0.75rem;
+	--font-size-small: 0.875rem;
+	--font-size-medium: 1rem;
+	--font-size-large: 1.125rem;
+	--font-size-x-large: 1.75rem;
+
+	/* misc */
+	--radius-small: 0.1875rem;
+	--slope-offset: 1rem;
+	--shadow: 0 4px 10px rgb(0 0 0 / 10%);
 
 	font-family: 'Lato', sans-serif;
 	font-size: 16px;
 	line-height: 1.5;
 	font-weight: 400;
 
-	color-scheme: light dark;
+	color-scheme: light;
 	background-color: var(--color-bg);
 	color: var(--color-text);
 
@@ -20,6 +43,8 @@
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
 }
+
+/* reset */
 
 *,
 *:before,
@@ -36,20 +61,70 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p {
+h6 {
 	font-weight: 400;
 	margin: 0;
 }
 
+/* font defaults  */
+
+p {
+	margin: 0;
+}
+
 h2 {
-	font-size: 0.875rem;
+	font-size: var(--font-size-small);
 
 	@media (--desktop-up) {
-		font-size: 1.125rem;
+		font-size: var(--font-size-large);
 	}
 }
 
-.main {
-	padding: 0 1rem 1rem;
+/* main layout: header and full height body */
+
+#root {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	min-height: 100vh;
+}
+
+/* btn visuals */
+
+.btn {
+	display: inline-block;
+	padding: 0.4rem 1rem;
+	background-color: transparent;
+	outline: none;
+	border: 1px solid var(--color-btn-primary);
+	box-shadow: var(--shadow);
+	border-radius: 1rem;
+	text-transform: uppercase;
+	color: var(--color-btn-primary);
+	font-size: var(--font-size-small);
+	line-height: 1.2;
+	cursor: pointer;
+	text-decoration: none;
+	transition: background-color 0.2s;
+
+	&:hover,
+	&:focus {
+		border-color: var(--color-btn-primary-focus);
+		color: var(--color-btn-primary-focus);
+	}
+
+	&:active {
+		transform: translateY(1px);
+	}
+
+	&--inverted {
+		background-color: var(--color-btn-primary);
+		color: var(--color-bg);
+
+		&:hover,
+		&:focus {
+			border-color: var(--color-btn-primary-focus);
+			background-color: var(--color-btn-primary-focus);
+			color: var(--color-bg);
+		}
+	}
 }
