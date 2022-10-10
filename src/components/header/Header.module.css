@@ -13,7 +13,7 @@
 
 .title {
 	font-weight: 300;
-	font-size: 1.75rem;
+	font-size: var(--font-size-x-large);
 	transform: translateX(-30px); /* NB! this can break when arrow size or padding is changed */
 	transition: transform 0.4s;
 }

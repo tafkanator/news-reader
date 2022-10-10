@@ -4,6 +4,7 @@
 	gap: 1rem;
 	align-items: start;
 	justify-items: center;
+	margin: 0 1rem 1rem;
 
 	/*  4 column layout in in larger screen */
 	@media (--desktop-up) {
@@ -31,7 +32,7 @@
 
 .card:nth-child(1) .cardTitle {
 	font-weight: 700;
-	font-size: 1.125rem;
+	font-size: var(--font-size-large);
 }
 
 .card:nth-child(2) .cardTitle {
