@@ -8,6 +8,8 @@ import { Comment } from 'src/components/comment/Comment';
 import { SkeletonLoader } from 'src/components/skeleton-loader/SkeletonLoader';
 import { Path } from 'src/router';
 import { useNewsDetailRouteQuery } from 'src/routes/news-detail/NewsDetailRouteQueries.generated';
+import { createRandomDate } from 'src/utils/createRandomDate';
+import { formatLocaleDate } from 'src/utils/formatLocaleDate';
 
 import styles from './NewsDetailRoute.module.css';
 
@@ -19,7 +21,7 @@ export const NewsDetailRoute: FC = () => {
 	const { data, loading, error } = useNewsDetailRouteQuery({ variables: { id } });
 
 	const title = data?.newsItem?.title ?? '';
-	const date = createRandomDate(new Date(1900, 0, 1), new Date()); /* API does not provide created date */
+	const date = formatLocaleDate(createRandomDate(new Date(1800, 1, 1), new Date())); // API does not provide created date
 	const content = data?.newsItem?.content;
 	const img = data?.newsItem?.img ?? '';
 	const url = data?.newsItem?.url;
@@ -62,7 +64,7 @@ export const NewsDetailRoute: FC = () => {
 				{comments.length === 0 && !loading && <p>No comments yet. Be the first one to leave a comment!</p>}
 
 				{comments.map((comment) => (
-					<Comment key={comment.id} email={comment.email} date={comment.createdDate}>
+					<Comment key={comment.id} email={comment.email} date={formatLocaleDate(comment.createdDate)}>
 						<p>{comment.content}</p>
 					</Comment>
 				))}
@@ -78,7 +80,3 @@ export const NewsDetailRoute: FC = () => {
 		</article>
 	);
 };
-
-function createRandomDate(start: Date, end: Date) {
-	return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toISOString();
-}
