@@ -1,4 +1,4 @@
-query NewsList($skip: Int!, $limit: Int!) {
+query NewsListRoute($skip: Int!, $limit: Int!) {
 	newsList(skip: $skip, limit: $limit) {
 		rows {
 			id

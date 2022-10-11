@@ -1,0 +1,50 @@
+.wrap {
+	gap: 1rem;
+	margin: 1rem 0;
+}
+
+.line {
+	background: linear-gradient(
+		45deg,
+		rgb(0 0 0 / 10%) 0%,
+		rgb(0 0 0 / 10%) 27%,
+		rgb(0 0 0 / 20%) 50%,
+		rgb(0 0 0 / 10%) 73%,
+		rgb(0 0 0 / 10%) 100%
+	);
+	background-size: 300% 300%;
+	animation: gradient 10s ease infinite;
+
+	border-radius: var(--radius-small);
+	height: 1rem;
+
+	& + & {
+		margin-top: 0.5rem;
+	}
+
+	&:nth-child(2n) {
+		width: 80%;
+	}
+
+	&:nth-child(3n) {
+		width: 75%;
+	}
+
+	&:nth-child(4n) {
+		margin-top: 1.5rem;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}

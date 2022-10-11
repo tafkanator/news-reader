@@ -1,30 +1,51 @@
+import { useMatch } from '@tanstack/react-location';
 import classNames from 'classnames';
 import { FC } from 'react';
 
 import { AsyncImage } from 'src/components/async-image/AsyncImage';
 import { CommentForm } from 'src/components/comment-form/CommentForm';
 import { Comment } from 'src/components/comment/Comment';
+import { SkeletonLoader } from 'src/components/skeleton-loader/SkeletonLoader';
+import { useNewsDetailRouteQuery } from 'src/routes/news-detail/NewsDetailRouteQueries.generated';
 
 import styles from './NewsDetailRoute.module.css';
 
 export const NewsDetailRoute: FC = () => {
+	const {
+		params: { id },
+	} = useMatch();
+
+	const { data, loading, error } = useNewsDetailRouteQuery({ variables: { id } });
+
 	return (
 		<article className={styles.wrap}>
 			<div className={styles.imgWrap}>
-				<AsyncImage src="https://placekitten.com/800/400" alt="alt" className={styles.img} />
+				<AsyncImage src={data?.newsItem?.img ?? ''} alt={data?.newsItem?.title ?? ''} className={styles.img} />
 			</div>
 
 			<div className={styles.content}>
-				<p className={styles.date}>12 hours ago</p>
-				<h2 className={styles.title}>GM unveils $30,000 electric SUV that will be one of the cheapest EVs available</h2>
-				<p>
-					Queen Elizabeth II's doctors "are concerned" for her health and have recommend that the monarch remain under
-					medical supervision, Buckingham Palace said in a statement on Thursday. This is a breaking story and will be
-					updated.
+				{loading && <SkeletonLoader lines={6} />}
+
+				<p className={styles.date}>
+					{createRandomDate(new Date(1900, 0, 1), new Date()) /* API does not provide news date */}
 				</p>
-				<a href="#read-more" className={classNames('btn', 'btn--inverted', styles.readMore)}>
-					Read full article
-				</a>
+
+				<h2 className={styles.title}>{data?.newsItem?.title}</h2>
+
+				{error && <p>Somethin went wrong. Please reload the page</p>}
+
+				<p>{data?.newsItem?.content}</p>
+
+				{data?.newsItem?.url && (
+					<a
+						href={data.newsItem.url}
+						target="_blank"
+						className={classNames('btn', 'btn--inverted', styles.readMore)}
+						rel="noreferrer"
+					>
+						Read full article
+					</a>
+				)}
 			</div>
 
 			<div className={styles.comments}>
@@ -53,3 +74,7 @@ export const NewsDetailRoute: FC = () => {
 		</article>
 	);
 };
+
+function createRandomDate(start: Date, end: Date) {
+	return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toISOString();
+}

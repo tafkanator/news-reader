@@ -1,0 +1,9 @@
+query NewsDetailRoute($id: ID!) {
+	newsItem(id: $id) {
+		id
+		img
+		title
+		content
+		url
+	}
+}

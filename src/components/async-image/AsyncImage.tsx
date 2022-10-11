@@ -24,7 +24,7 @@ export const AsyncImage: FC<AsyncImageProps> = ({ src, alt, width, height, class
 
 	// set image src when element is in viewport to start loading image
 	useEffect(() => {
-		if (isOnScreen && currentSrc !== src) {
+		if (isOnScreen && currentSrc !== src && src !== '') {
 			setCurrentSrc(src);
 		}
 	}, [isOnScreen, currentSrc, setCurrentSrc, src]);
