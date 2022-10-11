@@ -1,0 +1,9 @@
+query NewsList($skip: Int!, $limit: Int!) {
+	newsList(skip: $skip, limit: $limit) {
+		rows {
+			id
+			title
+			img
+		}
+	}
+}

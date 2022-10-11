@@ -1,0 +1,18 @@
+overwrite: true
+schema: 'https://news-reader.stagnationlab.dev/graphql'
+documents: 'src/**/*.graphql'
+generates:
+  src/common/types.generated.ts:
+    plugins:
+      - typescript
+  src/:
+    preset: near-operation-file
+    presetConfig:
+      baseTypesPath: ./common/types.generated.ts
+    plugins:
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+hooks:
+  afterAllFileWrite:
+    - eslint --fix
+    - prettier --write
