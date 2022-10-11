@@ -5,5 +5,12 @@ query NewsDetailRoute($id: ID!) {
 		title
 		content
 		url
+
+		comments {
+			id
+			email
+			createdDate
+			content
+		}
 	}
 }

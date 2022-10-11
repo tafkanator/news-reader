@@ -8,7 +8,7 @@ export type NewsDetailRouteQueryVariables = Types.Exact<{
 }>;
 
 
-export type NewsDetailRouteQuery = { __typename?: 'Query', newsItem?: { __typename?: 'NewsItem', id: string, img?: string | null, title: string, content: string, url: string } | null };
+export type NewsDetailRouteQuery = { __typename?: 'Query', newsItem?: { __typename?: 'NewsItem', id: string, img?: string | null, title: string, content: string, url: string, comments: Array<{ __typename?: 'Comment', id: string, email: string, createdDate: any, content: string }> } | null };
 
 
 export const NewsDetailRouteDocument = gql`
@@ -19,6 +19,12 @@ export const NewsDetailRouteDocument = gql`
     title
     content
     url
+    comments {
+      id
+      email
+      createdDate
+      content
+    }
   }
 }
     `;

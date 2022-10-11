@@ -3,6 +3,7 @@ import { Route, ReactLocation } from '@tanstack/react-location';
 export enum Path {
 	INDEX = '/',
 	NEWS_DETAIL = '/:id',
+	NOT_FOUND = '/not-found',
 }
 
 export const routes: Route[] = [
