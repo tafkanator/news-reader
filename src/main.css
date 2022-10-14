@@ -4,6 +4,7 @@
 	/* colors */
 	--color-bg: rgb(255 255 255);
 	--color-bg-secondary: rgb(247 247 247);
+	--color-error: rgb(170, 0, 0);
 
 	--color-text: rgb(9, 16, 29);
 	--color-text-alt: rgb(102, 102, 102);
@@ -114,6 +115,11 @@ h2 {
 
 	&:active {
 		transform: translateY(1px);
+	}
+
+	&:disabled {
+		pointer-events: none;
+		opacity: 0.6;
 	}
 
 	&--inverted {

@@ -77,8 +77,18 @@
 	}
 }
 
+.newComment {
+	animation: blink 1s 5;
+}
+
 .commentForm {
 	margin-top: 0.5rem;
 	padding-top: 1rem;
 	border-top: 2px dashed var(--color-input-border);
+}
+
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
 }

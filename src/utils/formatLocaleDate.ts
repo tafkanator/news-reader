@@ -47,8 +47,8 @@ function timeAgo(timestamp: number) {
 	}
 
 	if (minutesLeft > 1) {
-		return `${minutesLeft} minutes ago ${new Date(timestamp)}`;
+		return `${minutesLeft} minutes ago`;
 	}
 
-	return `a moment ago ${new Date(timestamp)}`;
+	return `a moment ago`;
 }

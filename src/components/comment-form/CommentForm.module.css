@@ -5,6 +5,15 @@
 	font-size: var(--font-size-small);
 }
 
-.btn {
-	margin: 0.5rem 0 0 auto;
+.footer {
+	display: grid;
+	grid-auto-flow: column;
+	justify-content: space-between;
+	align-items: start;
+	gap: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+.error {
+	color: var(--color-error);
 }

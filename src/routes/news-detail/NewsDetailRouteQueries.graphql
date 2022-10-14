@@ -14,3 +14,9 @@ query NewsDetailRoute($id: ID!) {
 		}
 	}
 }
+
+mutation NewsDetailRouteCreateComment($input: CreateCommentInput!) {
+	createComment(input: $input) {
+		id
+	}
+}
