@@ -17,7 +17,7 @@ const client = new ApolloClient({
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
 		<ApolloProvider client={client}>
-			<Router location={location} routes={routes}>
+			<Router location={location} routes={routes} basepath={import.meta.env.BASE_URL}>
 				<Header />
 
 				<main className="main">
