@@ -9,7 +9,7 @@ import styles from './Header.module.css';
 
 export const Header: FC = () => {
 	const matchRoute = useMatchRoute();
-	const isInSubPage = !matchRoute({ to: Path.INDEX });
+	const isInSubPage = !matchRoute({ to: Path.NEWS_LIST });
 
 	return (
 		<header className={classNames(styles.wrap, { [styles.hasBackLink]: isInSubPage })}>

@@ -1,0 +1,24 @@
+.wrap {
+	display: grid;
+	place-items: center;
+}
+
+.content {
+	text-align: center;
+	margin: 1rem;
+}
+
+.title {
+	font-size: 6rem;
+}
+
+.img {
+	display: block;
+	width: 100%;
+	max-width: 400px;
+	box-shadow: var(--shadow);
+}
+
+.btn {
+	margin-top: 1rem;
+}

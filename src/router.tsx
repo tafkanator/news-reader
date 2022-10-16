@@ -1,14 +1,19 @@
-import { Route, ReactLocation } from '@tanstack/react-location';
+import { Route, ReactLocation, Navigate } from '@tanstack/react-location';
 
 export enum Path {
 	INDEX = '/',
-	NEWS_DETAIL = '/:id',
+	NEWS_LIST = '/news/',
+	NEWS_DETAIL = '/news/:id',
 	NOT_FOUND = '/not-found',
 }
 
 export const routes: Route[] = [
 	{
 		path: Path.INDEX,
+		element: <Navigate replace to={Path.NEWS_LIST} />,
+	},
+	{
+		path: Path.NEWS_LIST,
 		element: () => import('src/routes/news-list/NewsListRoute').then((m) => <m.NewsListRoute />),
 	},
 	{
@@ -17,7 +22,7 @@ export const routes: Route[] = [
 	},
 	{
 		path: '*',
-		element: () => import('src/routes/NotFoundRoute').then((m) => <m.NotFoundRoute />),
+		element: () => import('src/routes/not-found/NotFoundRoute').then((m) => <m.NotFoundRoute />),
 	},
 ];
 

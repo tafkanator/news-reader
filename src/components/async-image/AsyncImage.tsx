@@ -13,7 +13,7 @@ export interface AsyncImageProps {
 	className?: string;
 }
 
-const fallbackSrc = '/no-image.png';
+const fallbackSrc = '/no-image.jpg';
 
 export const AsyncImage: FC<AsyncImageProps> = ({ src, alt, width, height, className }) => {
 	const [isLoaded, setIsLoaded] = useState(false);
