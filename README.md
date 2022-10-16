@@ -4,7 +4,7 @@ News reader practical test assignment for Stagnation Laboratory
 
 - [Assignment description](https://bit.ly/news-reader-description)
 - [Assignment design](https://bit.ly/news-reader-figma)
-- [Application live demo](???)
+- [Application live demo](https://tafkanator.github.io/news-reader/)
 
 ## Libraries and tools uesd
 
